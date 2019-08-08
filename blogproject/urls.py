@@ -29,12 +29,21 @@ urlpatterns = [
     path('mypage2/',blog.views.mypage2, name='mypage2'),
     path('accounts/signup/nono/',blog.views.nono, name='nono'),
     path('nono/',blog.views.nono, name='nono'),
+<<<<<<< HEAD
     path('blog/inform/nono/',blog.views.nono, name='nono'),
+=======
+>>>>>>> ef4964117f88841f51b978ea61574413e983e81f
     path('accounts/', include('accounts.urls')),
     path('blog/search', blog.views.search, name='search'),
     path('blog/inform/', blog.views.inform, name='inform'),
     path('blog/<int:blog_id>/', blog.views.detail, name='detail'),
+<<<<<<< HEAD
     path('accounts/', include('allauth.urls')),
     path('blog/update/<int:pk>',blog.views.update, name= 'update'),
     path('blog/delete/<int:pk>',blog.views.delete, name= 'delete'),
+=======
+    path('blog/<int:blog_id>/remove/', blog.views.remove, name= 'remove'),
+    path('blog/<int:blog_id>/edit/', blog.views.edit, name= 'edit'),
+    path('accounts/', include('allauth.urls')),
+>>>>>>> ef4964117f88841f51b978ea61574413e983e81f
 ]

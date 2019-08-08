@@ -3,8 +3,12 @@ from django.utils import timezone
 from django.core.paginator import Paginator 
 from .models import Blog
 from django.db.models import Q
+<<<<<<< HEAD
 from .form import NewBlog
 from django.contrib import admin
+=======
+
+>>>>>>> ef4964117f88841f51b978ea61574413e983e81f
 # Create your views here.
 def home(request):
     blogs = Blog.objects
@@ -27,6 +31,7 @@ def detail(request, blog_id):
     return render(request, 'detail.html', {'details': details})
    
 def create(request):
+<<<<<<< HEAD
         if request.method == 'POST':
                 form = NewBlog(request.POST)
                 if form.is_valid:
@@ -40,6 +45,15 @@ def create(request):
                 form = NewBlog()
                 return render(request, 'new.html', {'form':form})
         #print(request)blog= Blog() blog.title = request.POST.get('title','') blog.body = request.POST.get('body','')blog.pub_date = timezone.datetime.now()blog.save()return redirect('/blog/' + str(blog_id))    
+=======
+        print(request)
+        blog= Blog()
+        blog.title = request.POST.get('title','')
+        blog.body = request.POST.get('body','')
+        blog.pub_date = timezone.datetime.now()
+        blog.save()
+        return redirect('/blog/' + str(blog_id))    
+>>>>>>> ef4964117f88841f51b978ea61574413e983e81f
 
 def mypage(request):
     return render(request, 'mypage.html')
@@ -67,6 +81,7 @@ def search(request):
 def inform(request):
     return render(request, 'inform.html')
 
+<<<<<<< HEAD
 def delete(request,pk):
         blog = get_object_or_404(Blog, pk= pk)
         blog.delete()
@@ -84,5 +99,16 @@ def update(request,pk):
 
         return render(request,'new.html', {'form':form})
     
+=======
+def edit(request):
+        return render(request, 'edit_blog.html')
+    #post = get_object_or_404(Post, pk=blog_id)
+    #post.delete()
+    #return redirect('edit_blog.html')
+
+def remove(request):
+        return render(request, 'remove_blog.html')
+    #post = get_object_or_404(Post, pk=blog_id)
+>>>>>>> ef4964117f88841f51b978ea61574413e983e81f
     #post.delete()
     #return redirect('remove_blog.html')

@@ -7,8 +7,13 @@
       <p>{{ details.pub_date }}</p>
       <p>{{ details.body }}</p>
       <a href="{% url 'home' %}" class="btn btn-outline-dark"> 게시판으로 돌아가기</a>
+<<<<<<< HEAD
       <a href="{% url 'delete' blog.id %}" class="btn btn-outline-dark"> 삭제하기 </a>
       <a href="{% url 'update' blog.id %}" class="btn btn-outline-dark"> 수정하기 </a>
+=======
+      <a href="{% url 'remove' %}" class="btn btn-outline-dark"> 삭제하기 </a>
+      <a href="{% url 'edit' %}" class="btn btn-outline-dark"> 수정하기 </a>
+>>>>>>> ef4964117f88841f51b978ea61574413e983e81f
     </div>
     <div id="disqus_thread"></div>
     <!---{% csrf_token %}-->

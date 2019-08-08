@@ -63,7 +63,11 @@ section {
 
 .blue-button a:hover {
   background-color: transparent;
+<<<<<<< HEAD
   color: #4883ff;
+=======
+  color: #FF607f;
+>>>>>>> ef4964117f88841f51b978ea61574413e983e81f
 }
 
 
@@ -120,7 +124,11 @@ section {
 #primary-nav-button:before {
   content: '\2261';
   display: inline-block;
+<<<<<<< HEAD
   background-color: #4883ff;
+=======
+  background-color: #FF607f;
+>>>>>>> ef4964117f88841f51b978ea61574413e983e81f
   font-size: 36px;
   font-style: normal;
   font-weight: normal;
@@ -181,11 +189,19 @@ section {
 
 #primary-nav li > a:hover,
 #primary-nav li.selected > a {
+<<<<<<< HEAD
   color: #4883ff;
 }
 
 .sub-menu {
   border-top: 3px solid #4883ff;
+=======
+  color: #FF607f;
+}
+
+.sub-menu {
+  border-top: 3px solid #FF607f;
+>>>>>>> ef4964117f88841f51b978ea61574413e983e81f
 }
 
 .sub-menu li a {
@@ -433,7 +449,11 @@ section.banner {
 
 .submit-form button:hover {
   background-color: transparent;
+<<<<<<< HEAD
   color: #4883ff;
+=======
+  color: #FF607f;
+>>>>>>> ef4964117f88841f51b978ea61574413e983e81f
 }
 
 .popular-places .owl-nav {
@@ -455,7 +475,11 @@ section.banner {
 }
 
 .popular-places .owl-dots .active span {
+<<<<<<< HEAD
   background-color: #4883ff!important;
+=======
+  background-color: #FF607f!important;
+>>>>>>> ef4964117f88841f51b978ea61574413e983e81f
 }
 
 .popular-places .owl-dots button {
@@ -734,7 +758,11 @@ section.our-services .service-item h4 {
 }
 
 a.active:after {
+<<<<<<< HEAD
   background-color: #4883ff;
+=======
+  background-color: #FF607f;
+>>>>>>> ef4964117f88841f51b978ea61574413e983e81f
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
@@ -751,7 +779,11 @@ section.pricing-tables .table-item {
 }
 
 section.pricing-tables .table-item .top-content {
+<<<<<<< HEAD
   background-color: #4883ff;
+=======
+  background-color: #FF607f;
+>>>>>>> ef4964117f88841f51b978ea61574413e983e81f
   padding: 30px;
   color: #fff;
   border-top-right-radius: 10px;
@@ -791,7 +823,11 @@ section.pricing-tables .table-item ul li a {
 }
 
 section.pricing-tables .table-item ul li a:hover {
+<<<<<<< HEAD
   color: #4883ff;
+=======
+  color: #FF607f;
+>>>>>>> ef4964117f88841f51b978ea61574413e983e81f
 }
 
 section.contact .section-heading {
@@ -818,7 +854,11 @@ section.contact .section-heading {
 }
 .modal-btn:hover {
   background-color: transparent;
+<<<<<<< HEAD
   color: #4883ff;
+=======
+  color: #FF607f;
+>>>>>>> ef4964117f88841f51b978ea61574413e983e81f
 }
 
 /* Modal */
@@ -884,24 +924,40 @@ section.contact .section-heading {
 
 .modal-content .left-content button {
   display: inline-block;
+<<<<<<< HEAD
   background-color: #4883ff;
+=======
+  background-color: #FF607f;
+>>>>>>> ef4964117f88841f51b978ea61574413e983e81f
   color: #fff;
   font-size: 15px;
   font-weight: 500;
   padding: 10px 16px;
   text-decoration: none;
   border-radius: 0px;
+<<<<<<< HEAD
   border: 2px solid #4883ff;
+=======
+  border: 2px solid #FF607f;
+>>>>>>> ef4964117f88841f51b978ea61574413e983e81f
   transition: all 0.5s;
 }
 
 .modal-content .left-content button:hover {
   background-color: transparent;
+<<<<<<< HEAD
   color: #4883ff;
 }
 
 .modal-content .right-content {
   background-color: #4883ff;
+=======
+  color: #FF607f;
+}
+
+.modal-content .right-content {
+  background-color: #FF607f;
+>>>>>>> ef4964117f88841f51b978ea61574413e983e81f
   padding: 30px 30px 65px 30px;
   color: #fff;
 }
@@ -966,14 +1022,22 @@ section.contact .section-heading {
   text-align: center;
   line-height: 60px;
   background-color: #fff;
+<<<<<<< HEAD
   color: #4883ff;
+=======
+  color: #FF607f;
+>>>>>>> ef4964117f88841f51b978ea61574413e983e81f
   border-radius: 50%;
   opacity: 1;
 }
 
 .modal-content .close:hover {
   background-color: #fff;
+<<<<<<< HEAD
   color: #4883ff;
+=======
+  color: #FF607f;
+>>>>>>> ef4964117f88841f51b978ea61574413e983e81f
 }
 
 /* Keyframes */
@@ -1039,7 +1103,11 @@ footer .about-veno p {
 }
 
 footer .about-veno ul li a:hover {
+<<<<<<< HEAD
   background-color: #4883ff;
+=======
+  background-color: #FF607f;
+>>>>>>> ef4964117f88841f51b978ea61574413e983e81f
 }
 
 footer .useful-links ul li {
@@ -1055,11 +1123,19 @@ footer .useful-links ul li a {
 }
 
 footer .useful-links ul li a:hover {
+<<<<<<< HEAD
   color: #4883ff;
 }
 
 footer .useful-links ul li i {
   color: #4883ff;
+=======
+  color: #FF607f;
+}
+
+footer .useful-links ul li i {
+  color: #FF607f;
+>>>>>>> ef4964117f88841f51b978ea61574413e983e81f
   font-size: 6px;
   position: relative;
   top: -3px;
@@ -1085,7 +1161,11 @@ footer .contact-info ul li span {
 
 footer .contact-info ul li a {
   font-size: 13px;
+<<<<<<< HEAD
   color: #4883ff;
+=======
+  color: #FF607f;
+>>>>>>> ef4964117f88841f51b978ea61574413e983e81f
   letter-spacing: 0.5px;
   text-decoration: none;
 }

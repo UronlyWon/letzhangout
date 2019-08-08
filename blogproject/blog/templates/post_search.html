@@ -1,0 +1,68 @@
+{% extends 'base.html' %} {%block content %}
+<body>
+    <!-- 네브바 -->
+        <div class="wrap">
+            <header id="header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button id="primary-nav-button" type="button">Menu</button>
+                            <div class="logo"><a href="index.html">
+                                <img src="/static/images/logo.png" alt="Hangout" >
+                            </a>
+                            </div>
+                            <nav id="primary-nav" class="dropdown cf">
+                                <ul class="dropdown menu">
+                                    <!-- <li class='active'><a href="#">About</a></li>  -->
+                                    <li><a class="scrollTo" data-scrollTo="blog" href="#">페스티벌 정보</a></li>
+                                    <li><a class="scrollTo" data-scrollTo="contact" href="calender.html">페스티벌 일정</a></li>
+                                    {% if user.is_authenticated %}
+                                    <li><a class="scrollTo" data-scrollTo="services" href="{% url 'home' %}">친구 구하기</a></li>
+                                    {% else %}
+                                    <li><a class="scrollTo" data-scrollTo="services" href="{% url 'signup' %}" onclick="window.open('nono','windows팝업','width=300,height=300, menubar=no, toolbar=no');" >친구 구하기</a></li>
+                                    {% endif %}
+
+                                    {% if user.is_authenticated %}
+                                    
+                                    <li><a role="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" ><i class="fas fa-user"></i>  {{ user.username }} 님!</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="{% url 'mypage' %}">My Page </a></li>
+                                            <li><a href="javascript:{document.getElementById('logout').submit()}">Logout</a></li>
+                                            <form id="logout" method="POST" action="{% url 'logout' %}">
+                                                    {% csrf_token %} <input type="hidden" />
+                                            </form>
+                                        </ul>          
+                                    </li>
+
+                                    {% else %}
+                                    <li><a class="scrollTo" data-scrollTo="login" href="{% url 'login' %}">로그인</a></li>
+                                    {% endif %}
+
+
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+        
+    <div class="container">
+    <br><br>
+    <h1> " {{ search_term }} " 과 관련된 검색 결과입니다.</h1>
+    <br><br>
+    <div class="container jumbotron">
+        {% if object_list %}
+            {% for post in object_list %}
+                <h2><a href="{% url 'detail' post.id %}">{{ post.title }}</a></h2>
+                {{ post.pub_date }}
+                <p> {{ post.body }} </p>
+            {% endfor %}
+
+        {% elif search_term %}
+            <b><i>{{ search_term }}와 관련된 글이 없습니다 !</i></b>
+    
+        {% endif %}
+    </div>
+    </div>
+{% endblock %}
