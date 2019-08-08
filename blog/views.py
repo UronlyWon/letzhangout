@@ -3,7 +3,8 @@ from django.utils import timezone
 from django.core.paginator import Paginator 
 from .models import Blog
 from django.db.models import Q
-
+from .form import NewBlog
+from django.contrib import admin
 # Create your views here.
 def home(request):
     blogs = Blog.objects
@@ -26,13 +27,19 @@ def detail(request, blog_id):
     return render(request, 'detail.html', {'details': details})
    
 def create(request):
-        print(request)
-        blog= Blog()
-        blog.title = request.POST.get('title','')
-        blog.body = request.POST.get('body','')
-        blog.pub_date = timezone.datetime.now()
-        blog.save()
-        return redirect('/blog/' + str(blog_id))    
+        if request.method == 'POST':
+                form = NewBlog(request.POST)
+                if form.is_valid:
+                        post = form.save(commit=False)
+                        post.pub_date = timezone.now()
+                        post.save()
+                        return redirect('home')
+                         
+ 
+        else:
+                form = NewBlog()
+                return render(request, 'new.html', {'form':form})
+        #print(request)blog= Blog() blog.title = request.POST.get('title','') blog.body = request.POST.get('body','')blog.pub_date = timezone.datetime.now()blog.save()return redirect('/blog/' + str(blog_id))    
 
 def mypage(request):
     return render(request, 'mypage.html')
@@ -60,14 +67,22 @@ def search(request):
 def inform(request):
     return render(request, 'inform.html')
 
-def edit(request):
-        return render(request, 'edit_blog.html')
-    #post = get_object_or_404(Post, pk=blog_id)
-    #post.delete()
-    #return redirect('edit_blog.html')
+def delete(request,pk):
+        blog = get_object_or_404(Blog, pk= pk)
+        blog.delete()
+        return redirect('home')
 
-def remove(request):
-        return render(request, 'remove_blog.html')
-    #post = get_object_or_404(Post, pk=blog_id)
+def update(request,pk):
+        #블로그 객체 가져오기
+        blog = get_object_or_404(Blog, pk=pk)
+        #해당하는 블로그 객체 pk 에 맞는 입력공간
+        form = NewBlog(request.POST, instance= blog)
+
+        if form.is_valid():
+                form.save()
+                return redirect('home')
+
+        return render(request,'new.html', {'form':form})
+    
     #post.delete()
     #return redirect('remove_blog.html')

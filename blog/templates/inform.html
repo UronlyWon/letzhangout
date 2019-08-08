@@ -46,144 +46,466 @@
             </div> 
         </div> 
     
-<!-- 
-     달력시작    -->
-        <html xmlns="http://www.w3.org/1999/xhtml">
-        <head>
-        <style type="text/css">
-        td {
-         width: 150px;
-         height: 60px;
-         text-align: center;
-         font-size: 20px;
-         font-family: 바탕;
-         border:2px dotted #AC58FA;
-    
+        <!doctype html>
+        <html lang="en">
+         <head>
+          <meta charset="UTF-8">
+          <meta name="Generator" content="EditPlus®">
+          <meta name="Author" content="">
+          <meta name="Keywords" content="">
+          <meta name="Description" content="">
+          <title>페스티벌 일정</title>
+        
+          <style>
+        body {
+          font-family: 'BBTreeGR', 'Raleway', 'sans-serif';
         }
-         
+        header {
+          text-align: center;
+        }
+        #calendar {
+          width: 100%;
+        }
+        #calendar a {
+          color: #FF607f;
+          text-decoration: none;
+        }
+        #calendar ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          width: 100%;
+        }
+        #calendar li {
+          display: block;
+          float: left;
+          width: 14.342%;
+          padding: 5px;
+          box-sizing: border-box;
+          border: 1px solid #ccc;
+          margin-right: -1px;
+          margin-bottom: -1px;
+        }
+        #calendar ul.weekdays {
+          height: 40px;
+          background: #FF607f;
+        }
+        #calendar ul.weekdays li {
+          text-align: center;
+          text-transform: uppercase;
+          line-height: 20px;
+          border: none !important;
+          padding: 10px 6px;
+          color: #fff;
+          font-size: 13px;
+        }
+        #calendar .days li {
+          height: 180px;
+        }
+        #calendar .days li:hover {
+          background: #d3d3d3;
+        }
+        #calendar .date {
+          text-align: center;
+          margin-bottom: 5px;
+          padding: 4px;
+          background: #FF607f;
+          color: #fff;
+          width: 20px;
+          border-radius: 50%;
+          float: right;
+        }
+        #calendar .event {
+          clear: both;
+          display: block;
+          font-size: 13px;
+          border-radius: 4px;
+          padding: 5px;
+          margin-top: 40px;
+          margin-bottom: 5px;
+          line-height: 14px;
+          background: #e4f2f2;
+          border: 1px solid #b5dbdc;
+          color: #009aaf;
+          text-decoration: none;
+        }
+        #calendar .event-desc {
+          color: #FF607f;
+          margin: 3px 0 7px 0;
+          text-decoration: none;
+        }
+        #calendar .other-month {
+          background: #f5f5f5;
+          color: #FF607f;
+        }
+        /* ============================
+                        Mobile Responsiveness
+           ============================*/
+        @media (max-width: 768px) {
+          #calendar .weekdays, #calendar .other-month {
+            display: none;
+          }
+          #calendar li {
+            height: auto !important;
+            border: 1px solid #ededed;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: -1px;
+          }
+          #calendar .date {
+            float: none;
+          }
+        }
         </style>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-         
-         
-        <title>Calender</title>
-         
-        <script language="javascript" type="text/javascript">
-        var today = new Date(); // 오늘 날짜//지신의 컴퓨터를 기준으로
-        //today 에 Date객체를 넣어줌 //ex)5일  
-        function prevCalendar() {
-         
-         
-         today = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate());
-         buildCalendar(); // 현재 달 
-        }
-         
-        function nextCalendar() {
-         
-         
-         today = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
-         buildCalendar();
-        }
-         
-        function buildCalendar() {// 현재 달fur
-         var nMonth = new Date(today.getFullYear(), today.getMonth(), 1);  // 이번 달의 첫째 날
-         var lastDate = new Date(today.getFullYear(), today.getMonth()+1, 0); // 이번 달의 마지막 날
-         var tblCalendar = document.getElementById("calendar");     // 테이블 달력을 만들 테이블
-         var tblCalendarYM = document.getElementById("calendarYM");    // yyyy년 m월 출력할 곳
-         tblCalendarYM.innerHTML = today.getFullYear() + "년 " + (today.getMonth() + 1) + "월";  // yyyy년 m월 출력
-        // 기존 테이블에 뿌려진 줄, 칸 삭제
-         
-         
-         while (tblCalendar.rows.length > 2) {
-          tblCalendar.deleteRow(tblCalendar.rows.length - 1);
-         }
-         var row = null;
-         row = tblCalendar.insertRow();
-         var cnt = 0;
-        // 1일이 시작되는 칸을 맞추어 줌
-         for (i=0; i<nMonth.getDay(); i++) {
-          cell = row.insertCell();
-          cnt = cnt + 1;
-         }
-         
-         for (i=1; i<=lastDate.getDate(); i++) { 
-          cell = row.insertCell();
-          cell.innerHTML = i;
-          cnt = cnt + 1;
-          if (cnt%7 == 0)// 1주일이 7일 이므로
-           row = calendar.insertRow();// 줄 추가
-         }
-         
-        }
-         
-        </script>
-         
-        </head>
-        <body>
-        <table id="calendar" boarder="3" align="left">
-         <tr>
-             <td><label onclick="prevCalendar()"><</label></td>
-                <td colspan="5" align="left" id="calendarYM">yyyy년 m월</td>
-                <td><label onclick="nextCalendar()">>
-                   
-                </label></td>
-            </tr>
-            <tr>
-             <td align="left">일</td>
-             <td align="left">월</td>
-             <td align="left">화</td>
-            <td align="left">수</td>
-             <td align="left">목</td>
-             <td align="left">금</td>
-             <td align="left">토</td>
-           </tr>
-         
-         
-        </table>
-        <script language="javascript" type="text/javascript">
-        buildCalendar();
-        </script>
-        </body>
-        </html>
-    <!-- 요기까지 달력  -->
-
-        <div></div>
-        <div></div>
-
-&nbsp;&nbsp;
-
-        <div class="row">
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="featured-item">
-                    <div class="thumb">
-                        <img src="/letzhangout/blogproject/blog/static/images/featured_item_1.jpg" alt="">
-                        <div class="overlay-content">
-                        </div>
-                        <div class="date-content">
-                            <h6>15일</h6>
-                            <span>8월</span>
-                        </div>
-                    </div>
-                    <div class="down-content">
-                        <h4>워터밤 대전 2019</h4>
-                        <p>
-                          최고의 썸머 뮤직 페스티벌! 
-                            올 여름 워터밤 대전을 주목하라!
-                            </p>
-                        <div class="row">
-                            <div class="col-md-6 first-button">
-                                <div class="text-button">
-                                    <a href="#">함께할 친구 구하기</a>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="text-button">
-                                    <a href="https://booking.naver.com/booking/5/bizes/220262?area=bni">예매 정보 찾기</a>
-                                </div>
-                            </div>
-                        </div>
+         </head>
+         <body>
+            <!--
+                <fieldset>
+          <div id="calendar-wrap" style="height:auto; width:100%;"">
+                    <header>
+                        <h1 style="color:#FF607f">2019 8월</h1>
+                    </header>
+                    <div id="calendar">
+                        <ul class="weekdays">
+                            <li>Sunday</li>
+                            <li>Monday</li>
+                            <li>Tuesday</li>
+                            <li>Wednesday</li>
+                            <li>Thursday</li>
+                            <li>Friday</li>
+                            <li>Saturday</li>
+                        </ul>
+                        <ul class="days">
+                            <li class="day other-month">
+                                <div class="date">27</div>                      
+                            </li>
+                            <li class="day other-month">
+                                <div class="date">28</div>
+                                <div class="event">
+                                    <div class="event-desc">
+                                        HTML 5 lecture with Brad Traversy from Eduonix
+                                    </div>
+                                    <div class="event-time">
+                                        1:00pm to 3:00pm
+                                    </div>
+                                </div>                      
+                            </li>
+                            <li class="day other-month">
+                                <div class="date">29</div>                      
+                            </li>
+                            <li class="day other-month">
+                                <div class="date">30</div>                      
+                            </li>
+                            <li class="day other-month">
+                                <div class="date">31</div>                      
+                            </li>
+                            <li class="day">
+                                <div class="date">1</div>                       
+                            </li>
+                            <li class="day">
+                                <div class="date">2</div>
+                                <div class="event">
+                                    <div class="event-desc">
+                                        Career development @ Community College room #402
+                                    </div>
+                                    <div class="event-time">
+                                        2:00pm to 5:00pm
+                                    </div>
+                                </div>                      
+                            </li>
+                        </ul>
+                        
+                        <ul class="days">
+                            <li class="day">
+                                <div class="date">3</div>                       
+                            </li>
+                            <li class="day">
+                                <div class="date">4</div>                       
+                            </li>
+                            <li class="day">
+                                <div class="date">5</div>                       
+                            </li>
+                            <li class="day">
+                                <div class="date">6</div>                       
+                            </li>
+                            <li class="day">
+                                <div class="date">7</div>
+                                <div class="event">
+                                    <div class="event-desc">
+                                        Group Project meetup
+                                    </div>
+                                    <div class="event-time">
+                                        6:00pm to 8:30pm
+                                    </div>
+                                </div>                      
+                            </li>
+                            <li class="day">
+                                <div class="date">8</div>                       
+                            </li>
+                            <li class="day">
+                                <div class="date">9</div>                       
+                            </li>
+                        </ul>
+                      
+                        <ul class="days">
+                            <li class="day">
+                                <div class="date">10</div>                      
+                            </li>
+                            <li class="day">
+                                <div class="date">11</div>                      
+                            </li>
+                            <li class="day">
+                                <div class="date">12</div>                      
+                            </li>
+                            <li class="day">
+                                <div class="date">13</div>                      
+                            </li>
+                            <li class="day">
+                                <div class="date">14</div><div class="event">
+                                    <div class="event-desc">
+                                        Board Meeting
+                                    </div>
+                                    <div class="event-time">
+                                        1:00pm to 3:00pm
+                                    </div>
+                                </div>                      
+                            </li>
+                            <li class="day">
+                                <div class="date">15</div>                      
+                            </li>
+                            <li class="day">
+                                <div class="date">16</div>                      
+                            </li>
+                        </ul>
+                       
+                        <ul class="days">
+                            <li class="day">
+                                <div class="date">17</div>                      
+                            </li>
+                            <li class="day">
+                                <div class="date">18</div>                      
+                            </li>
+                            <li class="day">
+                                <div class="date">19</div>                      
+                            </li>
+                            <li class="day">
+                                <div class="date">20</div>                      
+                            </li>
+                            <li class="day">
+                                <div class="date">21</div>                      
+                            </li>
+                            <li class="day">
+                                <div class="date">22</div>
+                                <div class="event">
+                                    <div class="event-desc">
+                                        Conference call
+                                    </div>
+                                    <div class="event-time">
+                                        9:00am to 12:00pm
+                                    </div>
+                                </div>                      
+                            </li>
+                            <li class="day">
+                                <div class="date">23</div>                      
+                            </li>
+                        </ul>
+                            
+                        <ul class="days">
+                            <li class="day">
+                                <div class="date">24</div>                      
+                            </li>
+                            <li class="day">
+                                <div class="date">25</div>
+                                <div class="event">
+                                    <div class="event-desc">
+                                        Conference Call
+                                    </div>
+                                    <div class="event-time">
+                                        1:00pm to 3:00pm
+                                    </div>
+                                </div>                      
+                            </li>
+                            <li class="day">
+                                <div class="date">26</div>                      
+                            </li>
+                            <li class="day">
+                                <div class="date">27</div>                      
+                            </li>
+                            <li class="day">
+                                <div class="date">28</div>                      
+                            </li>
+                            <li class="day">
+                                <div class="date">29</div>                      
+                            </li>
+                            <li class="day">
+                                <div class="date">30</div>                      
+                            </li>
+                        </ul>
+            
+                        <ul class="days">
+                            <li class="day">
+                                <div class="date">31</div>                      
+                            </li>
+                            <li class="day other-month">
+                                <div class="date">1</div> 
+                                            
+                            </li>
+                            <li class="day other-month">
+                                <div class="date">2</div>                       
+                            </li>
+                            <li class="day other-month">
+                                <div class="date">3</div>                       
+                            </li>
+                            <li class="day other-month">
+                                <div class="date">4</div>                       
+                            </li>
+                            <li class="day other-month">
+                                <div class="date">5</div>                       
+                            </li>
+                            <li class="day other-month">
+                                <div class="date">6</div>                       
+                            </li>
+                        </ul>
                     </div>
                 </div>
-            </div>
+            </br>
+            </fieldset>-->
+  <body>
+    <p>Google Calendar </p>
+
+    <button id="authorize_button" style="display: none;">Authorize</button>
+    <button id="signout_button" style="display: none;">Sign Out</button>
+
+    <pre id="content" style="white-space: pre-wrap;"></pre>
+
+    <script type="text/javascript">
+      // Client ID and API key from the Developer Console
+      var CLIENT_ID = '342519437056-616u74fuoeu76oon15b99targcguo8lq.apps.googleusercontent.com';
+      var API_KEY = 'AIzaSyBPc5DjcgZ3iN6Gir-vXHnoRB5VYBtD-vc';
+
+      // Array of API discovery doc URLs for APIs used by the quickstart
+      var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
+
+      // Authorization scopes required by the API; multiple scopes can be
+      // included, separated by spaces.
+      var SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
+
+      var authorizeButton = document.getElementById('authorize_button');
+      var signoutButton = document.getElementById('signout_button');
+
+      /**
+       *  On load, called to load the auth2 library and API client library.
+       */
+      function handleClientLoad() {
+        gapi.load('client:auth2', initClient);
+      }
+
+      /**
+       *  Initializes the API client library and sets up sign-in state
+       *  listeners.
+       */
+      function initClient() {
+        gapi.client.init({
+          apiKey: API_KEY,
+          clientId: CLIENT_ID,
+          discoveryDocs: DISCOVERY_DOCS,
+          scope: SCOPES
+        }).then(function () {
+          // Listen for sign-in state changes.
+          gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+
+          // Handle the initial sign-in state.
+          updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+          authorizeButton.onclick = handleAuthClick;
+          signoutButton.onclick = handleSignoutClick;
+        }, function(error) {
+          appendPre(JSON.stringify(error, null, 2));
+        });
+      }
+
+      /**
+       *  Called when the signed in status changes, to update the UI
+       *  appropriately. After a sign-in, the API is called.
+       */
+      function updateSigninStatus(isSignedIn) {
+        if (isSignedIn) {
+          authorizeButton.style.display = 'none';
+          signoutButton.style.display = 'block';
+          listUpcomingEvents();
+        } else {
+          authorizeButton.style.display = 'block';
+          signoutButton.style.display = 'none';
+        }
+      }
+
+      /**
+       *  Sign in the user upon button click.
+       */
+      function handleAuthClick(event) {
+        gapi.auth2.getAuthInstance().signIn();
+      }
+
+      /**
+       *  Sign out the user upon button click.
+       */
+      function handleSignoutClick(event) {
+        gapi.auth2.getAuthInstance().signOut();
+      }
+
+      /**
+       * Append a pre element to the body containing the given message
+       * as its text node. Used to display the results of the API call.
+       *
+       * @param {string} message Text to be placed in pre element.
+       */
+      function appendPre(message) {
+        var pre = document.getElementById('content');
+        var textContent = document.createTextNode(message + '\n');
+        pre.appendChild(textContent);
+      }
+
+      /**
+       * Print the summary and start datetime/date of the next ten events in
+       * the authorized user's calendar. If no events are found an
+       * appropriate message is printed.
+       */
+      function listUpcomingEvents() {
+        gapi.client.calendar.events.list({
+          'calendarId': 'primary',
+          'timeMin': (new Date()).toISOString(),
+          'showDeleted': false,
+          'singleEvents': true,
+          'maxResults': 10,
+          'orderBy': 'startTime'
+        }).then(function(response) {
+          var events = response.result.items;
+          appendPre('Upcoming events:');
+
+          if (events.length > 0) {
+            for (i = 0; i < events.length; i++) {
+              var event = events[i];
+              var when = event.start.dateTime;
+              if (!when) {
+                when = event.start.date;
+              }
+              appendPre(event.summary + ' (' + when + ')')
+            }
+          } else {
+            appendPre('No upcoming events found.');
+          }
+        });
+      }
+
+    </script>
+
+    <script async defer src="https://apis.google.com/js/api.js"
+      onload="this.onload=function(){};handleClientLoad()"
+      onreadystatechange="if (this.readyState === 'complete') this.onload()">
+    </script>
+            </br>  </br>
+        <fieldset>
+        
+
 
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="featured-item">
@@ -216,10 +538,42 @@
                 </div>
             </div>
 
+                    
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="featured-item">
+                        <div class="thumb">
+                            <img src="/static/images/featured_item_1.jpg" alt="">
+                            <div class="overlay-content">
+                            </div>
+                            <div class="date-content">
+                                <h6>15일</h6>
+                                <span>8월</span>
+                            </div>
+                        </div>
+                        <div class="down-content">
+                            <h4>워터밤 대전 2019</h4>                        
+                            <p>  최고의 썸머 뮤직 페스티벌! 
+                                    올 여름 워터밤 대구를 주목하라!</p>
+                            <div class="row">
+                                <div class="col-md-6 first-button">
+                                    <div class="text-button">
+                                        <a href="#">함께할 친구 구하기</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="text-button">
+                                        <a href="https://booking.naver.com/booking/5/bizes/220262?area=bni">예매 정보 찾기</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="featured-item">
                     <div class="thumb">
-                        <img src="/letzhangout/blogproject/blog/static/images/featured_item_4.jpg" alt="">
+                        <img src="/static/images/featured_item_4.jpg" alt="">
                         <div class="overlay-content">
                         
                         </div>
@@ -251,7 +605,7 @@
             <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="featured-item">
                         <div class="thumb">
-                            <img src="/letzhangout/blogproject/blog/static/images/featured_item_7.jpg" alt="">
+                            <img src="/static/images/featured_item_7.jpg" alt="">
                             <div class="overlay-content">
                             </div>
                             <div class="date-content">
@@ -281,7 +635,7 @@
             <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="featured-item">
                         <div class="thumb">
-                            <img src="/letzhangout/blogproject/blog/static/images/featured_item_3.jpg" alt="">
+                            <img src="/static/images/featured_item_3.jpg" alt="">
                             <div class="overlay-content">
                             </div>
                             <div class="date-content">
@@ -311,7 +665,7 @@
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="featured-item">
                     <div class="thumb">
-                        <img src="/letzhangout/blogproject/blog/static/images/featured_item_5.jpg" alt="">
+                        <img src="/static/images/featured_item_5.jpg" alt="">
                         <div class="overlay-content">
                         
                         </div>
@@ -341,7 +695,7 @@
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="featured-item">
                     <div class="thumb">
-                        <img src="/letzhangout/blogproject/blog/static/images/featured_item_6.jpg" alt="">
+                        <img src="/static/images/featured_item_6.jpg" alt="">
                         <div class="overlay-content">
                         
                         </div>
@@ -372,7 +726,7 @@
             <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="featured-item">
                         <div class="thumb">
-                            <img src="/letzhangout/blogproject/blog/static/images/featured_item_8.jpg" alt="">
+                            <img src="/static/images/featured_item_8.jpg" alt="">
                             <div class="overlay-content">
                             </div>
                             <div class="date-content">
@@ -402,7 +756,7 @@
             <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="featured-item">
                         <div class="thumb">
-                            <img src="/letzhangout/blogproject/blog/static/images/featured_item_9.jpg" alt="">
+                            <img src="/static/images/featured_item_9.jpg" alt="">
                             <div class="overlay-content">
                             </div>
                             <div class="date-content">
@@ -431,4 +785,8 @@
 
         </div>
     </div>
-{% endblock %}
+</fieldset>
+</body>
+</html>
+ 
+    {% endblock %}
